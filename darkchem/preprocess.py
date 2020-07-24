@@ -5,7 +5,7 @@ import glob
 import pandas as pd
 import os
 import numpy as np
-from openbabel import pybel
+from rdkit import Chem
 
 
 def vectorize(smiles, processes=mp.cpu_count()):
@@ -15,7 +15,9 @@ def vectorize(smiles, processes=mp.cpu_count()):
 
 def _canonicalize(smi):
     '''Canonicalizes SMILES string.'''
-    return pybel.readstring('smi', smi).write('can').strip()
+    # replace openbebel with rdkit
+    
+    return Chem.MolToSmiles(Chem.MolFromSmiles(smi))
 
 
 def canonicalize(smiles, processes=mp.cpu_count()):
@@ -25,8 +27,9 @@ def canonicalize(smiles, processes=mp.cpu_count()):
 
 def _inchi2smi(inchi):
     '''Converts InChI string to SMILES string.'''
-
-    return pybel.readstring('inchi', inchi).write('can').strip()
+    # replace openbebel with rdkit
+    
+    return Chem.MolToSmiles(Chem.MolFromInchi(inchi))
 
 
 def inchi2smi(inchis, processes=mp.cpu_count()):

@@ -1,4 +1,3 @@
-openbabel
 keras
 tensorflow
 rdkit
