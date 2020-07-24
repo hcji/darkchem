@@ -1,10 +1,10 @@
 from setuptools import setup, find_packages
 from darkchem import __version__
 
-
+'''
 with open('README.md') as f:
     readme = f.read()
-
+'''
 with open('LICENSE') as f:
     license = f.read()
 
@@ -18,7 +18,7 @@ setup(
     name='darkchem',
     version=__version__,
     description='Deep learning to uncover molecular "dark matter"',
-    long_description=readme,
+    # long_description=readme,
     author='Sean M. Colby',
     author_email='sean.colby@pnnl.gov',
     url='https://github.com/pnnl/darkchem',
